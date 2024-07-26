@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Franco Garbin</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        .header, .footer, .main {
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .header, .footer {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+        .header a, .footer a {
+            text-decoration: none;
+            color: #000;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold; /* Imposta il testo dei link nel menu in grassetto */
+        }
+        .main {
+            text-align: center;
+            flex: 1; /* Questa proprietà permette al main di crescere e occupare spazio disponibile */
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 25px; /* Aggiornato per abbinare il primo codice */
+            margin-top: 20px;
+            background-color: #d4850fbd; /* Aggiornato per abbinare il primo codice */
+            color: #fff !important;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em; /* Aggiornato per abbinare il primo codice */
+            font-weight: bold; /* Imposta il testo dei pulsanti in grassetto */
+        }
+        .spacer {
+            height: 20px;
+        }
+        p {
+            padding-left: 15%;
+            padding-right: 15%;
+            text-align: center;
+        }
+        .image-center {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+        .logo h1 {
+            font-size: 1.5em; /* Dimensione del font del logo aggiornata */
+            margin: 0;
+        }
+        .logo {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="nav">
+        <div class="logo">
+            <h1><a href="/index.html#">Dr. Franco Garbin</a></h1>
+        </div>
+        <div class="menu">
+            <a href="/index.html#">Home</a>
+            <a href="/contatti.html#">Contatti</a>
+            <a href="/prenota.html#" class="button">Prenota Ora</a>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="spacer"></div>
+    <h1>Prenotazioni</h1>
+    <p>Il Dr. Garbin accetta le prenotazioni telefoniche nei seguenti orari:</p>
+    <img src="/images/giorni.png" alt="Orari" class="image-center" style="width: 207px;">
+    <a href="/contatti.html#" class="button">Visualizza contatti</a>
+    <p>Al di fuori di questi orari, risponderà una segreteria automatica con la quale sarà possibile fissare via WhatsApp gli appuntamenti e ricevere comunicazioni in tempo reale sugli orari di apertura e disponibilità di posti in determinate date.</p>
+</main>
+
+<footer class="footer">
+    <p><a href="/index.html#">Dr. Franco Garbin</a></p>
+    <div class="footer-menu">
+        <p><a href="/index.html#">Home</a></p>
+        <p><a href="/contatti.html#">Contatti</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

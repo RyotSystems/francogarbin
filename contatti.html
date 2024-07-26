@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti - Dr. Franco Garbin</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        .header, .footer, .main {
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .header, .footer {
+            background-color: #f1f1f1;
+            text-align: center;
+        }
+        /* Stili dei link */
+        a {
+            text-decoration: none;
+            color: #000; /* Colore dei link */
+        }
+        a:hover, a:focus {
+            color: #000; /* Colore dei link al passaggio del mouse o focus */
+            text-decoration: underline; /* Sottolinea i link al passaggio del mouse */
+        }
+        a:visited {
+            color: #000; /* Colore dei link visitati */
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #000;
+            font-weight: bold; /* Imposta il testo dei link nel menu in grassetto */
+        }
+        .main {
+            text-align: center;
+            flex: 1; /* Questa proprietà permette al main di crescere e occupare spazio disponibile */
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 25px; /* Aggiornato per abbinare il primo codice */
+            margin-top: 20px;
+            background-color: #d4850fbd; /* Aggiornato per abbinare il primo codice */
+            color: #fff !important;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em; /* Aggiornato per abbinare il primo codice */
+            font-weight: bold; /* Imposta il testo dei pulsanti in grassetto */
+        }
+        .spacer {
+            height: 20px;
+        }
+        p {
+            text-align: center;
+        }
+        .image-center {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+        }
+        .logo h1 {
+            font-size: 1.5em; /* Dimensione del font del logo aggiornata */
+            margin: 0;
+        }
+        .logo {
+            margin-left: 10px;
+        }
+        .contact-container {
+            width: 80%; /* Imposta una larghezza fissa per il contenitore dei contatti */
+            max-width: 600px; /* Limita la larghezza massima */
+            margin: 0 auto; /* Centra il contenitore */
+        }
+        .contact-icons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 100px 0; /* Margini superiori e inferiori uguali */
+        }
+        .contact-icons img {
+            width: 40px;
+            height: 40px;
+        }
+        .contact-details {
+            margin-top: 20px;
+        }
+        .footer-menu p a {
+            font-weight: bold; /* Imposta il testo dei link nel footer in grassetto */
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="nav">
+        <div class="logo">
+            <h1><a href="/index.html#">Dr. Franco Garbin</a></h1>
+        </div>
+        <div class="menu">
+            <a href="/index.html#">Home</a>
+            <a href="/contatti.html#">Contatti</a>
+            <a href="/prenota.html#" class="button">Prenota Ora</a>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <div class="spacer"></div>
+    <h1>Contatti</h1>
+    <div class="contact-container">
+        <div class="contact-icons">
+            <div>
+                <img src="https://img.icons8.com/ios-filled/50/000000/whatsapp.png" alt="WhatsApp">
+                <p><a href="tel:+393394132022">+39 3394132022</a></p>
+            </div>
+            <div>
+                <img src="https://img.icons8.com/ios-filled/50/000000/email.png" alt="Email">
+                <p><a href="mailto:francogarbin@gmail.com">francogarbin@gmail.com</a></p>
+            </div>
+            <div>
+                <img src="https://img.icons8.com/ios-filled/50/000000/marker.png" alt="Location">
+                <p><a href="https://maps.google.com/?q=Via Cristoforo Colombo, 4, 30035 Mirano VE">Via Cristoforo Colombo, 4, 30035 Mirano VE</a></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <p><a href="/index.html#">Dr. Franco Garbin</a></p>
+    <div class="footer-menu">
+        <p><a href="/index.html#">Home</a></p>
+        <p><a href="/contatti.html#">Contatti</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
