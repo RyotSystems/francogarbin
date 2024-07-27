@@ -14,26 +14,22 @@
             flex-direction: column;
             font-family: Arial, sans-serif;
         }
-        .header, .footer, .main {
+        .header, .footer {
             width: 100%;
             padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .main {
+            width: 100%;
             padding-bottom: 20px;
         }
         .header, .footer {
             background-color: #f1f1f1;
             text-align: center;
         }
-        /* Stili dei link */
-        a {
+        .header a, .footer a {
             text-decoration: none;
-            color: #000; /* Colore dei link */
-        }
-        a:hover, a:focus {
-            color: #000; /* Colore dei link al passaggio del mouse o focus */
-            text-decoration: underline; /* Sottolinea i link al passaggio del mouse */
-        }
-        a:visited {
-            color: #000; /* Colore dei link visitati */
+            color: #000;
         }
         .nav {
             display: flex;
@@ -44,7 +40,7 @@
             margin: 0 15px;
             text-decoration: none;
             color: #000;
-            font-weight: bold; /* Imposta il testo dei link nel menu in grassetto */
+            font-weight: bold; /* Imposta il testo dei link in grassetto */
         }
         .main {
             text-align: center;
@@ -52,20 +48,28 @@
         }
         .button {
             display: inline-block;
-            padding: 12px 25px; /* Aggiornato per abbinare il primo codice */
+            padding: 12px 25px; /* Uniforma il padding con il primo codice */
             margin-top: 20px;
-            background-color: #d4850fbd; /* Aggiornato per abbinare il primo codice */
+            background-color: #d4850fbd; /* Uniforma il colore di sfondo con il primo codice */
             color: #fff !important;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 1.1em; /* Aggiornato per abbinare il primo codice */
+            font-size: 1em; /* Riduci la dimensione del font */
             font-weight: bold; /* Imposta il testo dei pulsanti in grassetto */
         }
         .spacer {
             height: 20px;
         }
+        .imgdottore {
+            margin: 20px auto;
+            max-width: 100%;
+            display: block;
+        }
         p {
+            padding-left: 20px;
+            padding-right: 20px;
             text-align: center;
+            font-size: 0.9em; /* Riduci la dimensione del font */
         }
         .image-center {
             display: block;
@@ -74,33 +78,147 @@
             height: auto;
         }
         .logo h1 {
-            font-size: 1.5em; /* Dimensione del font del logo aggiornata */
+            font-size: 1.5em; /* Uniforma la dimensione del font del logo con il primo codice */
             margin: 0;
         }
         .logo {
             margin-left: 10px;
         }
-        .contact-container {
-            width: 80%; /* Imposta una larghezza fissa per il contenitore dei contatti */
-            max-width: 600px; /* Limita la larghezza massima */
-            margin: 0 auto; /* Centra il contenitore */
+        .descrizione {
+            text-align: justify;
+            font-family: 'Georgia', serif; /* Imposta il font a Georgia */
+            font-style: italic; /* Imposta il font in corsivo */
+            font-size: 0.9em; /* Riduci la dimensione del font */
         }
-        .contact-icons {
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.6); /* Strato bianco semitrasparente che copre tutta l'immagine */
+            z-index: 1;
+        }
+        .hero {
+    position: relative;
+    text-align: center;
+    height: 60vh; /* Aumenta l'altezza della sezione hero */
+    overflow: hidden;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assicura che l'immagine copra l'intera area */
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    z-index: 2;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%; /* Limita la larghezza del testo */
+    max-width: 600px; /* Imposta una larghezza massima */
+}
+
+.hero h1 {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 2em;
+    margin-bottom: 20px; /* Aggiunge spazio sotto il titolo */
+}
+        .content {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            gap: 15px;
-            margin: 100px 0; /* Margini superiori e inferiori uguali */
+            flex-direction: column; /* Cambia direzione per mobile */
+            padding: 20px;
         }
-        .contact-icons img {
-            width: 40px;
-            height: 40px;
+        .content img {
+            max-width: 100%;
+            margin: 20px 0; /* Aggiungi margine verticale */
         }
-        .contact-details {
-            margin-top: 20px;
+        .content p {
+            font-size: 0.9em;
+            text-align: justify;
+            font-family: 'Georgia', serif; /* Imposta il font a Georgia */
+            font-style: italic; /* Imposta il font in corsivo */
+            margin-top: 0; /* Aggiungi margine */
         }
         .footer-menu p a {
             font-weight: bold; /* Imposta il testo dei link nel footer in grassetto */
+        }
+        
+        /* Aggiungi le media queries per mobile */
+        @media (max-width: 768px) {
+    .header {
+        padding: 10px 0;
+    }
+    
+    .nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .logo {
+        margin-bottom: 10px;
+    }
+    
+    .menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* space-around o space-evenly */
+    min-width: 80vw;
+}
+
+    
+    .menu a {
+        margin: 5px 0;
+    }
+    
+    .hero {
+        height: 30vh;
+        overflow: hidden;
+    }
+    
+    .hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .hero-text {
+        width: 90%;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.5em;
+    }
+    
+    .button {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+}
+
+        /* Stili dei link */
+        .contact-container a {
+            text-decoration: none;
+            color: #000; /* Colore dei link */
+            font-size: 1.2em; /* Rende i link più grandi */
+        }
+        a:hover, a:focus {
+            color: #000; /* Colore dei link al passaggio del mouse o focus */
+            text-decoration: none; /* Rimuove la sottolineatura al passaggio del mouse */
+        }
+        a:visited {
+            color: #000; /* Colore dei link visitati */
         }
     </style>
 </head>
