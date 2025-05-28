@@ -6,6 +6,8 @@
     <title>Studio Ginecologico Dr. Franco Garbin</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
     <style>
         /* All previous styles remain exactly the same */
         :root {
@@ -175,15 +177,23 @@
         }
 
         .profile-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .profile-header {
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 2rem;
-            align-items: center;
+            align-items: start;
         }
 
         .profile-image {
             width: 100%;
             border-radius: 10px;
+            position: sticky;
+            top: 100px;
         }
 
         .profile-text {
@@ -222,13 +232,122 @@
         }
 
         @media (max-width: 768px) {
-            .profile-content {
+            .profile-header {
                 grid-template-columns: 1fr;
+            }
+
+            .profile-image {
+                position: static;
+                max-width: 300px;
+                margin: 0 auto;
             }
 
             .hero h2 {
                 font-size: 1.8rem;
             }
+        }
+
+        /* Stili per il carosello CV */
+        .cv-carousel-container {
+            position: relative;
+            margin: 2rem auto;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .swiper {
+            width: 100%;
+            padding-bottom: 50px;
+            padding-top: 10px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: contain;
+            cursor: pointer;
+            transition: transform 0.3s;
+            height: 600px; /* Altezza fissa per le slide */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.8);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .swiper-pagination {
+            bottom: 10px !important;
+        }
+
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background: var(--accent-color);
+        }
+
+        .cv-instructions {
+            text-align: center;
+            margin: 1rem 0;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            animation: pulse 2s infinite;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .cv-carousel-container {
+                max-width: 100%;
+                padding: 0 1rem;
+            }
+
+            .swiper-slide {
+                height: 400px; /* Altezza ridotta per mobile */
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                transform: scale(0.8);
+            }
+
+            .cv-instructions {
+                font-size: 0.9rem;
+                padding: 0.8rem;
+            }
+        }
+
+        .cv-section {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -261,14 +380,30 @@
 
         <section class="profile-section">
             <div class="profile-content">
-                <img src="https://github.com/RyotSystems/francogarbin/raw/main/media/Garbin1.png" alt="Dr. Franco Garbin" class="profile-image">
-                <div class="profile-text">
-                    <p>Il Dr. Franco Garbin è un esperto riconosciuto nel campo della Ginecologia e Ostetricia, laureato in Medicina e Chirurgia presso l'Università degli Studi di Padova e specializzato in Ostetricia e Ginecologia presso l'Università degli Studi di Firenze. Possiede una vasta esperienza operativa non solo in ambito ginecologico e ostetrico, ma anche nella gestione di patologie come l'Endometriosi e i PCOs (Sindrome dell'Ovaio Policistico), settori nei quali ha acquisito una particolare competenza.</p>
-                    <br>
-                    <p>Ricoprendo ruoli di Primario e Direttore di Unità Operative Complesse, la sua pratica si estende alla chirurgia ginecologica, oncologica, alla diagnostica prenatale e alla gestione delle gravidanze a rischio. Esperto in tecniche laparoscopiche e chirurgia del pavimento pelvico, ha anche partecipato a numerosi corsi di aggiornamento e svolto un'intensa attività di docenza e ricerca, pubblicando diversi lavori scientifici e partecipando a convegni nazionali e internazionali come relatore e moderatore.</p>
-                    <br>
+                <div class="profile-header">
+                    <img src="https://github.com/RyotSystems/francogarbin/raw/main/media/Garbin1.png" alt="Dr. Franco Garbin" class="profile-image">
+                    <div class="profile-text">
+                        <p>Il Dr. Franco Garbin è un esperto riconosciuto nel campo della Ginecologia e Ostetricia, laureato in Medicina e Chirurgia presso l'Università degli Studi di Padova e specializzato in Ostetricia e Ginecologia presso l'Università degli Studi di Firenze. Possiede una vasta esperienza operativa non solo in ambito ginecologico e ostetrico, ma anche nella gestione di patologie come l'Endometriosi e i PCOs (Sindrome dell'Ovaio Policistico), settori nei quali ha acquisito una particolare competenza.</p>
+                        <br>
+                        <p>Ricoprendo ruoli di Primario e Direttore di Unità Operative Complesse, la sua pratica si estende alla chirurgia ginecologica, oncologica, alla diagnostica prenatale e alla gestione delle gravidanze a rischio. Esperto in tecniche laparoscopiche e chirurgia del pavimento pelvico, ha anche partecipato a numerosi corsi di aggiornamento e svolto un'intensa attività di docenza e ricerca, pubblicando diversi lavori scientifici e partecipando a convegni nazionali e internazionali come relatore e moderatore.</p>
+                    </div>
+                </div>
+                <div class="cv-section">
+                    <div class="cv-carousel-container">
+                        <div class="cv-instructions">
+                            <i class="fas fa-info-circle"></i> Scorri o clicca sulle immagini per ingrandirle
+                        </div>
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <!-- Le immagini del CV verranno caricate qui dinamicamente -->
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
                     <div class="text-center">
-                        <a href="#" class="btn" onclick="openCV()">Consulta il CV</a>
+                        <a href="#" class="btn" onclick="openCV()">Scarica il CV</a>
                     </div>
                 </div>
             </div>
@@ -285,14 +420,145 @@
         <p class="credits">Sito creato da Ryot Systems</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
     <script>
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('active');
         }
 
         function openCV() {
-            window.open('https://github.com/RyotSystems/francogarbin/raw/main/CV/CurriculumDr.FrancoGrabin.pdf', '_blank');
+            window.open('CV/CurriculumDr.FrancoGrabin.pdf', '_blank');
         }
+
+        // Configurazione del carosello con i nomi corretti delle immagini
+        const cvImages = [
+            "CurriculumDr.FrancoGrabin_page-0001.jpg",
+            "CurriculumDr.FrancoGrabin_page-0002.jpg",
+            "CurriculumDr.FrancoGrabin_page-0003.jpg",
+            "CurriculumDr.FrancoGrabin_page-0004.jpg",
+            "CurriculumDr.FrancoGrabin_page-0005.jpg",
+            "CurriculumDr.FrancoGrabin_page-0006.jpg",
+            "CurriculumDr.FrancoGrabin_page-0007.jpg",
+            "CurriculumDr.FrancoGrabin_page-0008.jpg",
+            "CurriculumDr.FrancoGrabin_page-0009.jpg",
+            "CurriculumDr.FrancoGrabin_page-0010.jpg",
+            "CurriculumDr.FrancoGrabin_page-0011 .jpg",
+            "CurriculumDr.FrancoGrabin_page-0012.jpg",
+            "CurriculumDr.FrancoGrabin_page-0013.jpg",
+            "CurriculumDr .FrancoGrabin_page-0014.jpg",
+            "CurriculumDr.FrancoGrabin_page-0015.jpg",
+            "CurriculumDr.FrancoGrabin_page-0016.jpg",
+            "CurriculumDr.FrancoGrabin_page-0017.jpg",
+            "CurriculumDr .FrancoGrabin_page-0018.jpg",
+            "CurriculumDr.FrancoGrabin_page-001 g .jpg",
+            "CurriculumDr.FrancoGrabin_page-0020.jpg",
+            "CurriculumDr.FrancoGrabin_page-0021 .jpg",
+            "CurriculumDr.FrancoGrabin_page-0022.jpg",
+            "CurriculumDr.FrancoGrabin_page-0023.jpg",
+            "CurriculumDr.FrancoGrabin_page-0024.jpg",
+            "CurriculumDr.FrancoGrabin_page-0025.jpg",
+            "CurriculumDr.FrancoGrabin_page-0026.jpg",
+            "CurriculumDr.FrancoGrabin_page-0027.jpg",
+            "CurriculumDr.FrancoGrabin_page-0028.jpg",
+            "CurriculumDr.FrancoGrabin_page-0029.jpg",
+            "CurriculumDr.FrancoGrabin_page-0030.jpg",
+            "CurriculumDr.FrancoGrabin_page-0031 .jpg",
+            "CurriculumDr.FrancoGrabin_page-0032.jpg",
+            "CurriculumDr.FrancoGrabin_page-0033.jpg",
+            "CurriculumDr.FrancoGrabin_page-0034.jpg",
+            "CurriculumDr.FrancoGrabin_page-0035.jpg",
+            "CurriculumDr.FrancoGrabin_page-0036.jpg"
+        ];
+
+        // Inizializzazione del carosello
+        window.addEventListener('DOMContentLoaded', () => {
+            const swiperWrapper = document.querySelector('.swiper-wrapper');
+            
+            cvImages.forEach((imageName, index) => {
+                const slide = document.createElement('div');
+                slide.className = 'swiper-slide';
+                
+                const img = document.createElement('img');
+                img.src = `CV Foto/${imageName}`;
+                img.alt = `CV Pagina ${index + 1}`;
+                img.loading = 'lazy';
+                
+                // Aggiunge il click per aprire l'immagine in grande
+                img.addEventListener('click', () => {
+                    const lightbox = document.createElement('div');
+                    lightbox.className = 'lightbox';
+                    const fullImg = document.createElement('img');
+                    fullImg.src = img.src;
+                    lightbox.appendChild(fullImg);
+                    document.body.appendChild(lightbox);
+                    
+                    lightbox.addEventListener('click', () => {
+                        lightbox.remove();
+                    });
+                });
+                
+                slide.appendChild(img);
+                swiperWrapper.appendChild(slide);
+            });
+
+            new Swiper('.swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                centeredSlides: true,
+                loop: true,
+                autoHeight: false,
+                lazy: {
+                    loadPrevNext: true,
+                    loadPrevNextAmount: 3
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                keyboard: {
+                    enabled: true,
+                },
+                mousewheel: {
+                    invert: false,
+                },
+                speed: 300,
+                grabCursor: true,
+                preloadImages: true,
+                watchSlidesProgress: true,
+                watchSlidesVisibility: true
+            });
+        });
+
+        // Aggiungi stili per il lightbox
+        const style = document.createElement('style');
+        style.textContent = `
+            .lightbox {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                cursor: pointer;
+            }
+            
+            .lightbox img {
+                max-width: 90%;
+                max-height: 90vh;
+                object-fit: contain;
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
